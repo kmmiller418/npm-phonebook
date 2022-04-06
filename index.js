@@ -67,7 +67,7 @@ app.delete("/api/persons/:id", (request, response) => {
 });
 
 const generateId = () => {
-  let id = Math.floor(Math.random() * (100 - 1));
+  let id = Math.floor(Math.random() * (100 - 1) + 1);
 
   if (persons.find((person) => person.id === id)) {
     id = generateId();
