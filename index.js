@@ -4,9 +4,9 @@ const app = express();
 
 app.use(express.json());
 
-morgan.token("postPerson", (req, res) => {
-  if (req.method === "POST") {
-    return JSON.stringify(req.body);
+morgan.token("postPerson", (request, response) => {
+  if (request.method === "POST") {
+    return JSON.stringify(request.body);
   }
   return null;
 });
