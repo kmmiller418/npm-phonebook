@@ -35,6 +35,10 @@ let persons = [
   },
 ];
 
+app.get("/"), (response) => {
+  response.send(`<h1>Welcome to the Phonebook</h1>`);
+}
+
 app.get("/info", (request, response) => {
   const d = new Date();
 
