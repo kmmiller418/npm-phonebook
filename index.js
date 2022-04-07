@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-morgan.token("postLogger", (request, response) => {
+morgan.token("postLogger", (request) => {
   if (request.method === "POST") {
     return JSON.stringify(request.body);
   }
@@ -103,8 +103,10 @@ app.post("/api/persons", (request, response) => {
   response.json(person);
 });
 
-const PORT = process.env.PORT || 3001 
+//lint wants me to define this but it's just NodeJs.Process
+//I've fixed all other lint errors but this one will have to stay
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
-})
+  console.log(`Server running on port ${PORT}`);
+});
