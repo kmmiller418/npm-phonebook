@@ -4,14 +4,13 @@ const app = express();
 
 app.use(express.json());
 
-morgan.token("postPerson", (request, response) => {
+morgan.token("postLogger", (request, response) => {
   if (request.method === "POST") {
     return JSON.stringify(request.body);
   }
-  return null;
 });
 
-app.use(morgan(":method :url :status :res[content-length] - :response-time ms :postPerson"));
+app.use(morgan(":method :url :status :res[content-length] - :response-time ms :postLogger"));
 
 let persons = [
   {
